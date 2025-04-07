@@ -165,6 +165,6 @@ Returns all tasks as JSON:
 
 ## 👨‍💻 Author
 
-Created by [Your Name](https://github.com/your_username) as part of a Ruby on Rails technical assessment.
+Created by [DevAdam-k](https://github.com/your_username) as part of a Ruby on Rails technical assessment.
 
 ---
