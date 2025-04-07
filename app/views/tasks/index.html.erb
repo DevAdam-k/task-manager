@@ -1,0 +1,29 @@
+<h1 class="text-3xl font-bold mb-6 text-center">Tasks</h1>
+<div class="flex justify-center gap-4 mb-6">
+  <%= link_to "All", tasks_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+  <%= link_to "Completed", tasks_path(status: "completed"), class: "focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %>
+  <%= link_to "Pending", tasks_path(status: "pending"), class: "focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900" %>
+</div>
+
+<div class="flex flex-wrap gap-6 justify-start">
+  <%= turbo_frame_tag "new_task_form" do %>
+  <% end %>
+
+  <%= render partial: "tasks/card", collection: @tasks, as: :task %>
+
+  <div class="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-5">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        Add New Task
+      </h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+        Fill in task details including an optional image
+      </p>
+      <p class="mb-3 text-sm text-gray-500">Due: Select a date</p>
+      <div class="flex flex-wrap gap-2">
+        <%= link_to "Add New Task", new_task_path, data: { turbo_frame: "new_task_form" }, class: "inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" %>
+      </div>
+    </div>
+  </div>
+
+</div>
